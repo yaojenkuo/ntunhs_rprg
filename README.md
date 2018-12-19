@@ -4,7 +4,15 @@
 
 <https://www.sli.do/>
 
+## 課堂同步程式碼
+
+- [20181219](https://www.dropbox.com/s/1y0zyut3su1pj9r/20181219_ntunhs.R?dl=0)
+
 ## 課程投影片
+
+### 文章
+
+- [大學城的房價較為抗跌保值](https://medium.com/datainpoint/university-of-michigan-introduction-to-data-science-in-python-%E7%9A%84%E7%AC%AC%E5%9B%9B%E9%80%B1%E4%BD%9C%E6%A5%AD-hypothesis-testing-37a17225b55a)
 
 ### HTML 格式
 
@@ -34,6 +42,6 @@
 ## 延伸閱讀
 
 - [輕鬆學習 R 語言 - 紙本書](http://www.books.com.tw/products/0010763975)
-- [輕鬆學習 R 語言 - 網頁版](http://www.learn-r-the-easy-way.tw)
-- [Datainpoint](https://medium.com/datainpoint)
+- [輕鬆學習 R 語言 - 網頁版](https://www.datainpoint.com/r-essentials/)
+- [Datainpoint](https://www.datainpoint.com/)
 - [DataCamp](https://www.datacamp.com?tap_a=5644-dce66f&tap_s=194899-1fb421)
