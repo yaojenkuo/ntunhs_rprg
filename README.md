@@ -6,6 +6,7 @@
 
 ## 課堂同步程式碼
 
+- [20181220](https://www.dropbox.com/s/18shomjhtyn2dww/20181220.R?dl=0)
 - [20181219](https://www.dropbox.com/s/1y0zyut3su1pj9r/20181219_ntunhs.R?dl=0)
 
 ## 課程投影片
