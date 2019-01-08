@@ -24,6 +24,7 @@
 - [Project: Programming with R](https://yaojenkuo.io/learn-r-ntub/proj_prgwr.html)
 - [Exploring Data with R](https://yaojenkuo.io/learn-r-ntub/exploring_data#/)
 - [Project: Exploratory Data Analysis](https://yaojenkuo.io/learn-r-ntub/proj_edawr.html)
+- [Getting Started with Kaggle in R](https://yaojenkuo.io/ntunhs_rprg/getting-started-with-kaggle.html)
 
 ### PDF 格式
 
