@@ -1,0 +1,183 @@
+---
+title: "Getting Started with Kaggle in R"
+author: "郭耀仁"
+output:
+  revealjs::revealjs_presentation:
+    highlight: pygments
+    reveal_options:
+      slideNumber: true
+      previewLinks: true
+---
+
+
+# About Kaggle
+
+## Kaggle is the Facebook for data scientists
+
+> Kaggle is an online community of data scientists and machine learners, owned by Google.
+
+## Get started with Kaggle is easy
+
+- [Kaggle.com](https://www.kaggle.com/)
+- 註冊（Sign up）
+- Done!
+
+## What to do after signing up?
+
+- [Learn](https://www.kaggle.com/learn)
+- [Competitions](https://www.kaggle.com/competitions)
+- [Discussion](https://www.kaggle.com/discussion)
+
+# About Kaggle Learn
+
+## How to learn Kaggle
+
+<https://www.kaggle.com/learn/overview>
+
+## Learning steps
+
+- R
+- 機器學習
+
+# About Kaggle Competitions
+
+## Kaggle Competitions are its core assets
+
+## There are 7 categories in Kaggle Competitions
+
+- Featured
+- Research
+- Recruitment
+- **Getting started**
+- Masters
+- Playground
+- Analytics
+
+## There are 3 getting started competitions
+
+- [House Prices: Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques)
+- [Titanic: Machine Learning from Disaster](https://www.kaggle.com/c/titanic)
+- [Digit Recognizer](https://www.kaggle.com/c/digit-recognizer)
+
+## Standard procedures of a machine learning project
+
+- 獲取資料
+- 整併資料
+- 機器學習
+- 預測
+
+# House Prices: Advanced Regression Techniques
+
+## Predict sales prices and practice feature engineering
+
+預測售價，是一個迴歸問題
+
+## Complete code for House Prices
+
+```{r}
+# 獲取資料
+train <- read.csv("https://s3-ap-northeast-1.amazonaws.com/kaggle-getting-started/house-prices/train.csv", stringsAsFactors = F)
+test <- read.csv("https://s3-ap-northeast-1.amazonaws.com/kaggle-getting-started/house-prices/test.csv", stringsAsFactors = F)
+
+# 整併資料
+test_labels <- test$Id
+test$Id <- NULL
+train$Id <- NULL
+test$SalePrice <- NA
+all <- rbind(train, test)
+numericVars <- which(sapply(all, is.numeric))
+factorVars <- which(sapply(all, is.factor))
+all_numVar <- all[, numericVars]
+cor_numVar <- cor(all_numVar, use = "pairwise.complete.obs")
+cor_sorted <- as.matrix(sort(cor_numVar[, 'SalePrice'], decreasing = TRUE))
+CorHigh <- names(which(apply(cor_sorted, 1, function(x) abs(x)>0.5)))
+cor_numVar <- cor_numVar[CorHigh, CorHigh]
+cor_high_vars <- names(cor_numVar[, 1])
+combined <- all[, cor_high_vars]
+
+# 機器學習
+train1 <- combined[!is.na(all$SalePrice), ]
+test1 <- combined[is.na(all$SalePrice), ]
+test1 <- test1[, -1]
+lm_fit <- lm(formula = SalePrice ~ ., data = train1)
+
+# 預測
+pred <- predict(lm_fit, test1)
+```
+
+# Titanic: Machine Learning from Disaster
+
+## Predict survival on the Titanic
+
+預測存活或死亡，是一個二元分類問題
+
+## Complete code for Titanic
+
+```{r}
+# 載入套件
+library(rpart)
+
+# 獲取資料
+train <- read.csv("https://s3-ap-northeast-1.amazonaws.com/kaggle-getting-started/titanic/train.csv", stringsAsFactors = F)
+test <- read.csv("https://s3-ap-northeast-1.amazonaws.com/kaggle-getting-started/titanic/test.csv", stringsAsFactors = F)
+
+# 整併資料
+test$Survived <- NA
+all <- rbind(train, test)
+all$Embarked[c(62, 830)] <- 'C'
+all$Fare[1044] <- median(all[all$Pclass == '3' & all$Embarked == 'S', ]$Fare, na.rm = TRUE)
+age_missing <- is.na(all$Age)
+all$Age[age_missing] <- median(all$Age, na.rm = TRUE)
+
+# 機器學習
+train1 <- all[1:891, ]
+test1 <- all[892:nrow(all), ]
+dt_model <- rpart(formula = factor(Survived) ~ Pclass + Sex + Age + SibSp + Parch + Fare + Embarked, data = train1)
+
+# 預測
+pred <- predict(dt_model, new_data = test1, type = "class")
+```
+
+# Digit Recognizer
+
+## Learn computer vision fundamentals
+
+預測手寫數字圖片中的數字，是一個多元（0 至 9）分類問題
+
+## Complete code for Titanic
+
+```{r}
+# 載入套件
+library(randomForest)
+
+# 獲取資料
+train <- read.csv("https://s3-ap-northeast-1.amazonaws.com/kaggle-getting-started/mnist/train.csv", stringsAsFactors = F)
+test <- read.csv("https://s3-ap-northeast-1.amazonaws.com/kaggle-getting-started/mnist/test.csv", stringsAsFactors = F)
+
+# 整併資料
+numTrain <- 10000
+numTrees <- 25
+rows <- sample(1:nrow(train), numTrain)
+labels <- as.factor(train[rows,1])
+train <- train[rows, -1]
+
+# 機器學習
+rf <- randomForest(train, labels, xtest = test, ntree = numTrees)
+
+# 預測
+pred <- rf$test$predicted
+```
+
+# About Kaggle Discussion
+
+## What to do after uploading your own prediction results?
+
+- 試著讓機器學習的評估變得更好
+- 然後重複、不斷地上傳
+- 但該如何讓評估變得更好？
+
+## That is why we need Kaggle Discussion
+
+> 他山之石可以攻錯。
+
+<https://www.kaggle.com/discussion>
