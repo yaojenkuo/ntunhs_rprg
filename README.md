@@ -2,9 +2,7 @@
 
 ## 課堂互動工具
 
-<https://www.sli.do/>
-
-頻道代號：Y513
+<https://www.sli.do/> 頻道代號 J931
 
 <!--
 
