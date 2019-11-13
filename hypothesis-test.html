@@ -2201,6 +2201,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <a class="sourceLine" id="cb42-2" data-line-number="2">t_alpha &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha, <span class="dt">df =</span> n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb42-3" data-line-number="3">t_alpha</a></code></pre></div>
 <pre><code>## [1] 1.699127</code></pre>
+</section><section id="interpretation-6" class="slide level2">
+<h2>Interpretation</h2>
 <p>The test statistic 6.0392912 is greater than the critical value of 1.699127. Hence, at .05 significance level, we reject the claim that mean age of Titanic passengers is younger than 20 years old.</p>
 </section></section>
 <section><section id="two-tailed-test-of-population-mean-with-unknown-variance" class="title-slide slide level1"><h1>Two-Tailed Test of Population Mean with Unknown Variance</h1></section><section id="null-hypothesis-of-the-two-tailed-test-of-the-population-mean-1" class="slide level2">
@@ -2231,7 +2233,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <a class="sourceLine" id="cb46-2" data-line-number="2">t_half_alpha &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>alpha<span class="op">/</span><span class="dv">2</span>, <span class="dt">df =</span> n <span class="op">-</span><span class="st"> </span><span class="dv">1</span>)</a>
 <a class="sourceLine" id="cb46-3" data-line-number="3"><span class="kw">c</span>(<span class="op">-</span>t_half_alpha, t_half_alpha)</a></code></pre></div>
 <pre><code>## [1] -2.04523  2.04523</code></pre>
-</section><section id="interpretation-6" class="slide level2">
+</section><section id="interpretation-7" class="slide level2">
 <h2>Interpretation</h2>
 <p>The test statistic 0.8479356 which lies between the critical values of -2.0452296 and 2.0452296. Hence, at .05 significance level, we do not reject the claim that the sample mean age of Titanic passengers is the same as population.</p>
 </section><section id="exercise-1" class="slide level2">
