@@ -19,7 +19,7 @@
 - [資料處理專題：Kaggle 資料集（Titanic / Housing）](data-manipulation.html)
 - [統計檢定專題：Kaggle 資料集 Titanic](hypothesis-test.html)
 - [回歸專題：Kaggle 資料集 Housing](linear-regression.html)
-- [預測專題：如何完成一個 Kaggle Competitions]()
+- [預測專題：如何完成一個 Kaggle Competitions](how-to-leverage-r-in-data-science.html)
 
 <!--
 
