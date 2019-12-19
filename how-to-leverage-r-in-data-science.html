@@ -2384,7 +2384,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <a class="sourceLine" id="cb32-5" data-line-number="5">lm_fit &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> SalePrice <span class="op">~</span><span class="st"> </span>., <span class="dt">data =</span> train1)</a>
 <a class="sourceLine" id="cb32-6" data-line-number="6"><span class="co"># predicting</span></a>
 <a class="sourceLine" id="cb32-7" data-line-number="7">y_pred &lt;-<span class="st"> </span><span class="kw">predict</span>(lm_fit, test1)</a>
-<a class="sourceLine" id="cb32-8" data-line-number="8">y_pred[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
+<a class="sourceLine" id="cb32-8" data-line-number="8"><span class="co"># replace NA if there is any</span></a>
+<a class="sourceLine" id="cb32-9" data-line-number="9">y_pred[<span class="kw">is.na</span>(y_pred)] &lt;-<span class="st"> </span><span class="kw">mean</span>(y_pred, <span class="dt">na.rm =</span> <span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb32-10" data-line-number="10">y_pred[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>]</a></code></pre></div>
 <pre><code>##     1461     1462     1463     1464     1465     1466     1467     1468 
 ## 110135.9 159060.0 169683.7 188059.7 219782.0 182152.0 175453.9 175115.2 
 ##     1469     1470 
@@ -2473,8 +2475,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="a-quote-from-shane-leggs-tweet" class="slide level2">
 <h2>A quote from Shane Legg’s tweet</h2>
 <blockquote>
-<p>Learn: 1. linear algebra well (e.g. matrix math) 2. calculus to an ok level (not advanced stuff) 3. prob. theory and stats to a good level 4. theoretical computer science basics 5. to code well in Python and ok in C++</p>
-<p>Then read and implement ML papers and <em>play</em> with stuff! :-)</p>
+<p>Learn: 1. linear algebra well (e.g. matrix math) 2. calculus to an ok level (not advanced stuff) 3. prob. theory and stats to a good level 4. theoretical computer science basics 5. to code well in Python and ok in C++ Then read and implement ML papers and <em>play</em> with stuff! :-)</p>
 </blockquote>
 <p>Source: <a href="https://twitter.com/ShaneLegg/status/1024289820665950208?s=20" class="uri">https://twitter.com/ShaneLegg/status/1024289820665950208?s=20</a></p>
 </section></section>
